@@ -14,8 +14,9 @@ from nittygriddy import utils
 
 def _pprint_json(dics):
     json_str = json.dumps(dics, sort_keys=True, indent=4)
-    print(highlight(str(json_str, 'UTF-8'),
-                    JsonLexer(), TerminalFormatter()))
+    if isinstance(json_str, bytes):
+        json_str = json_str.decode('UTF-8')
+    print(highlight(json_str, JsonLexer(), TerminalFormatter()))
 
 
 def datasets(args):

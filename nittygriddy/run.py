@@ -92,7 +92,9 @@ def run(args):
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         procs.append(p)
         for line in iter(p.stdout.readline, b''):
-            print((line.rstrip()))  # rstrip to remove \n; doesn't like carriage returns
+            if isinstance(line, bytes):
+                line = line.decode()
+            print(line.rstrip()) # rstrip to remove \n; doesn't like carriage returns
     except KeyboardInterrupt as e:
         for proc in procs:
             print("Killing: ", proc)

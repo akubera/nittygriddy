@@ -61,12 +61,12 @@ def get_datasets():
     """
     default_ds_name = os.path.join(_internal_files_dir(), "datasets.yml")
     user_ds_name = os.path.expanduser("~/nitty_datasets.yml")
-    with open(default_ds_name, "read") as f:
+    with open(default_ds_name, "r") as f:
         default_ds = yaml.safe_load(f)
         validate_dataset(default_ds)
     # open the user's definitions; create the file if it does not exist
     try:
-        with open(user_ds_name, "read") as f:
+        with open(user_ds_name, "r") as f:
             user_ds = yaml.safe_load(f)
             if user_ds:
                 validate_dataset(user_ds)
@@ -375,7 +375,7 @@ def check_alien_token():
     except subprocess.CalledProcessError:
         raise AlienTokenError("Could not call `alien-token-info` to check token.")
     for l in output.splitlines():
-        if "Token is still valid!" in l:
+        if b"Token is still valid!" in l:
             return True
     raise AlienTokenError("Alien token is invalid. Call `alien-token-init` before running nittygriddy.")
 
