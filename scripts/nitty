@@ -1,12 +1,16 @@
-#! /usr/bin/python2
+#!/usr/bin/env python
+
+from __future__ import print_function
+
 import logging
 import sys
 
+
 try:
     from nittygriddy import parser
-except ImportError, e:
-    print "There was an import error! Was ROOT `source`ed properly?"
-    print e
+except ImportError as e:
+    print("There was an import error! Was ROOT `source`ed properly?")
+    print(e)
     quit()
 
 parser = parser.create_parser()
@@ -19,8 +23,6 @@ except KeyboardInterrupt:
 except Exception as e:
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG)
-        # re-raise with the full traceback
-        t, v, tb = sys.exc_info()
-        raise t, v, tb
+        raise
     else:
         sys.exit("{0}: {1}".format(e.__class__.__name__, e))

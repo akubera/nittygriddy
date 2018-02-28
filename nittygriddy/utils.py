@@ -21,8 +21,8 @@ import zipfile
 import ROOT
 from rootpy.io import root_open
 
-from nittygriddy import settings
-from nittygriddy.alienTokenError import AlienTokenError
+from . import settings
+from .alienTokenError import AlienTokenError
 
 GRID_CONNECTION = None
 
