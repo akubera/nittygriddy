@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from setuptools import setup
 from glob import glob
 
@@ -7,7 +9,8 @@ tests_require = ['nose']
 setup(
     name='nittygriddy',
     version='1.0.6',
-    description="Convinient way to deploy your ALICE analysis locally (sequential and proof lite) or on the grid",
+    description="Convinient way to deploy your ALICE analysis locally "
+                "(sequential and proof lite) or on the grid",
     author='Christian Bourjau',
     author_email='christian.bourjau@cern.ch',
     packages=['nittygriddy', 'nittygriddy.tests'],
@@ -27,6 +30,7 @@ setup(
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.5",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
