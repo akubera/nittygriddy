@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from setuptools import setup
-from glob import glob
 
 install_requires = ['rootpy', 'pygments', 'pyyaml', 'future']
 tests_require = ['nose']
@@ -26,7 +25,11 @@ setup(
     long_description=open('README.rst').read(),
     url='https://github.com/cbourjau/nittygriddy',
     keywords=['alice', 'cern', 'grid', 'proof'],
-    scripts=glob('scripts/*'),
+    entry_points={
+        'console_scripts': [
+            'nitty = nittygriddy.__main__:main'
+        ]
+    },
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
