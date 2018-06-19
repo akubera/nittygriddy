@@ -4,7 +4,6 @@ from setuptools import setup
 
 setup(
     version='1.0.6',
-    packages=['nittygriddy', 'nittygriddy.tests'],
     package_data={
         'nittygriddy': [
             'non-python-files/datasets.yml',
@@ -14,6 +13,5 @@ setup(
         ],
     },
     long_description=open('README.rst').read(),
-    scripts=glob('scripts/*'),
     test_suite='nose.collector',
 )
