@@ -17,3 +17,7 @@ nosetests.xml
 .idea/
 .vscode/
 .*.swp
+
+[0-9]*_[0-9]*
+latest
+
